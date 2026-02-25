@@ -12,7 +12,7 @@
     --instagram-color: #E1306C;
     --website-color: #6e5494;
     --tiktok-color: #000000;
-    --youtube-color: #FF0000;
+    --facebook-color: #1877F2;
 }
 
 * {
@@ -387,8 +387,39 @@ body {
     background: var(--tiktok-color);
 }
 
-.social-btn.youtube {
-    background: var(--youtube-color);
+.social-btn.facebook {
+    background: var(--facebook-color);
+}
+
+.social-btn.website.coming-soon {
+    cursor: default;
+    position: relative;
+}
+
+.social-btn.website.coming-soon:hover {
+    transform: none;
+    background: var(--website-color);
+}
+
+.social-btn.website.coming-soon::after {
+    content: 'Coming Soon';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.social-btn.website.coming-soon:hover::after {
+    opacity: 1;
 }
 
 /* More Button */
