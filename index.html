@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esther Ochieng | Tess the Barista</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="card-container">
+        <!-- Front Page (Main View) -->
+        <section class="card-section active" id="main-view">
+            <div class="profile-header">
+                <div class="profile-img-container">
+                    <img src="tess.png" alt="Esther Ochieng - Tess the Barista" class="profile-img" id="profileImage">
+                    <div class="status-badge"><i class="ph-fill ph-check-circle"></i></div>
+                </div>
+                <h1 class="name">Esther Ochieng</h1>
+                <h2 class="title">a.k.a <span class="highlight">"Tess the Barista"</span></h2>
+            </div>
+
+            <div class="awards-container">
+                <div class="award-badge">
+                    <i class="ph-fill ph-trophy"></i>
+                    <span>2x Kenya National Barista Champion ('22, '23)</span>
+                </div>
+                <div class="award-badge">
+                    <i class="ph-fill ph-medal"></i>
+                    <span>2022 East African Barista Champion</span>
+                </div>
+                <div class="award-badge">
+                    <i class="ph-fill ph-globe-hemisphere-east"></i>
+                    <span>Global Competitor (Melbourne & Athens)</span>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="#" class="social-btn whatsapp" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#" class="social-btn website" aria-label="Website"><i class="ph ph-globe"></i></a>
+                <a href="#" class="social-btn tiktok" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                <a href="#" class="social-btn youtube" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+            </div>
+
+            <button class="more-btn" id="moreBtn">
+                <span>View My Work</span>
+                <i class="ph ph-arrow-right"></i>
+            </button>
+        </section>
+
+        <!-- Secondary View (More Info) -->
+        <section class="card-section hidden" id="details-view">
+            <button class="back-btn" id="backBtn">
+                <i class="ph ph-arrow-left"></i>
+                <span>Back</span>
+            </button>
+
+            <div class="details-content">
+                <h3 class="section-title">The <span class="highlight">"FairChain"</span> Advocate</h3>
+                <p class="description">
+                    Dedicated to keeping more of coffee's value within Kenya rather than just exporting raw beans.
+                    Turning what many see as a service job into a high-level craft and a career in business development.
+                </p>
+
+                <div class="work-experience">
+                    <div class="work-item">
+                        <div class="work-icon"><i class="ph-fill ph-briefcase"></i></div>
+                        <div class="work-text">
+                            <h4>New Business Developer & Head Barista</h4>
+                            <p>Moyee Coffee & Coffee Klub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="ph ph-storefront"></i>
+                        <h4>Consulting</h4>
+                        <p>For new cafes & coffee shops.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="ph ph-student"></i>
+                        <h4>Training</h4>
+                        <p>Mentoring aspiring baristas.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="ph ph-plant"></i>
+                        <h4>Advising</h4>
+                        <p>Helping farmers meet specialty standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
