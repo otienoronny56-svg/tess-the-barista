@@ -106,8 +106,9 @@ body {
     height: 850px;
     max-height: 90vh;
     background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    /* Reduced blur as requested */
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
@@ -181,11 +182,23 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    scrollbar-width: none;
+    /* Ensure scrolable */
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
 }
 
 .card-section::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+}
+
+.card-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card-section::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
 }
 
 .card-section.active {
@@ -210,6 +223,37 @@ body {
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
+}
+
+#details-view {
+    position: relative;
+    /* Redundant styles removed; inherited from .card-section */
+}
+
+.card-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('cappuccino_background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    z-index: 0;
+    filter: saturate(0.8);
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+/* Show background when details view is active */
+.card-container:has(#details-view.active) .card-bg-overlay {
+    opacity: 0.15;
+}
+
+.details-content {
+    position: relative;
+    z-index: 1;
 }
 
 /* Main View Content */
@@ -289,51 +333,65 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Awards */
-.awards-container {
+/* Condensed Awards */
+.awards-summary {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.award-badge {
+.award-pill {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
     background: white;
     border: 1px solid var(--card-border);
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
-.award-badge:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    background: #fff;
+.award-pill:hover {
+    transform: translateY(-2px);
     border-color: var(--accent-color);
+    color: var(--text-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.award-badge i {
-    font-size: 20px;
+.award-pill i {
     color: var(--accent-color);
+    font-size: 14px;
+}
+
+/* Connect Header */
+.connect-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.connect-header .label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.connect-header .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--card-border), transparent);
 }
 
 /* Social Grid - Brand Colors by Default */
@@ -356,6 +414,43 @@ body {
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    animation: float-btn 4s ease-in-out infinite;
+}
+
+@keyframes float-btn {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.social-btn:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.social-btn:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.social-btn:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.social-btn:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.social-btn:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.social-btn:nth-child(6) {
+    animation-delay: 2.5s;
 }
 
 .social-btn i {
